@@ -1,28 +1,208 @@
 <!doctype html>
+
 <html lang="en">
 <head>
-  <style>
-  body {
-    background-color: #1e1e1e;
-    color: white;
-  }
-</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amin | Personal Website</title>
+  <title>Amin Nabizada | Personal Website</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101820;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #17232e;
+    }
+
+    nav h2 {
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      padding: 60px 10%;
+      background: linear-gradient(135deg, #17232e, #0d1117);
+    }
+
+    .hero-text {
+      max-width: 520px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.6;
+      color: #d5dce3;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 20px;
+      background: #2f9e8f;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .profile-photo {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #2f9e8f;
+    }
+
+    .section {
+      padding: 55px 10%;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 32px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 230px;
+      padding: 25px;
+      background: #17232e;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #63d8c8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #17232e;
+      color: #b8c3cc;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 18px 7%;
+      }
+
+      nav a {
+        margin-left: 10px;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 50px 7%;
+        gap: 25px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
-  <h1>Hello, I’m Amin</h1>
-  <p>Welcome to my personal website.</p>
+  <nav>
+    <h2>Amin</h2>
+    <div>
+      <a href="#about">About</a>
+      <a href="#interests">Interests</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <h2>About Me</h2>
-  <p>I am from Afghanistan  and I am learning Machine Learning.</p>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hello, I’m Amin Nabizada</h1>
+      <p>
+        Welcome to my personal website. I am from Azerbaijan and I am learning
+        web development, technology, and new skills.
+      </p>
+      <a class="button" href="#about">Learn about me</a>
+    </div>
 
-  <h2>My Interests</h2>
-  <ul>
-    <li>Technology</li>
-    <li>Learning Computer</li>
-    <li>My hobbies</li>
-  </ul>
+```
+<img
+  class="profile-photo"
+  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=500&q=80"
+  alt="Profile photo"
+>
+```
+
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      I am building my first personal website and improving my skills every day.
+    </p>
+  </section>
+
+  <section class="section" id="interests">
+    <h2>My Interests</h2>
+
+```
+<div class="cards">
+  <div class="card">
+    <h3>Technology</h3>
+    <p>I enjoy learning about computers, websites, and new technology.</p>
+  </div>
+
+  <div class="card">
+    <h3>Learning</h3>
+    <p>I like improving my English and learning useful skills.</p>
+  </div>
+
+  <div class="card">
+    <h3>Hobbies</h3>
+    <p>Add your hobbies here, such as football, gaming, music, or travel.</p>
+  </div>
+</div>
+```
+
+  </section>
+
+  <footer id="contact">
+    <p>© 2026 Amin Nabizada · My personal website</p>
+  </footer>
 </body>
 </html>
