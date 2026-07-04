@@ -129,19 +129,22 @@ transform: translate(-70px, 90px) scale(1.15);
   min-height: 25px;
 }
 
-/* PHOTO */
+/* PROFILE PHOTO — rounded portfolio style */
 .profile-photo {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
+  width: 300px;
+  height: 380px;
   object-fit: cover;
-  border: 4px solid #2f9e8f;
-  transition: 0.3s;
+  object-position: center;
+  border-radius: 24px;
+  border: 1px solid rgba(47, 158, 143, 0.55);
+  box-shadow: 18px 18px 0 rgba(47, 158, 143, 0.18);
+  transition: transform 0.3s ease;
 }
 
-    .profile-photo:hover {
-      transform: scale(1.05);
-    }
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+
 
 /* SECTIONS */
 .section {
@@ -306,7 +309,7 @@ My goal is to pursue a career in AI and use machine learning to solve real-world
     <div>
       <p class="project-label">DATA ANALYSIS · PYTHON · KAGGLE</p>
 
-```
+
   <h3>Social Media Performance Analysis</h3>
 
   <p>
@@ -319,7 +322,7 @@ My goal is to pursue a career in AI and use machine learning to solve real-world
     Open Project
   </a>
 </div>
-```
+
 
   </div>
 </section>
