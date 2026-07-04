@@ -191,6 +191,36 @@ h1, h2 {
 
   transition: transform 0.3s ease;
 }
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-description {
+  opacity: 0.8;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
 /* SECTIONS */
 .section {
   padding: 110px 10%;
@@ -391,31 +421,31 @@ footer {
   <h1>Amin Nabizada</h1>
 
  <!-- HERO -->
+<!-- HERO -->
 <section class="hero">
-
   <div class="hero-text">
-
     <h1>Amin Nabizada</h1>
-
     <h2 id="typing"></h2>
 
     <p class="subtitle">Machine Learning Student | Developer</p>
 
-    <div style="opacity:0.8; margin-top:10px; font-size:14px;">
+    <div class="hero-description">
       Building AI systems for real-world impact
     </div>
 
-    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
+    <div class="hero-buttons">
       <a class="button" href="#projects">View Projects</a>
-      <a class="button" href="mailto:heyaminnabizada@gmail.com">
-        Contact Me
-      </a>
+      <a class="button" href="mailto:heyaminnabizada@gmail.com">Contact Me</a>
     </div>
-
   </div>
 
-  <img src="IMG_20260102_173049.jpg" alt="Amin Nabizada" class="profile-photo">
-
+  <div class="hero-image">
+    <img
+      src="IMG_20260102_173049.jpg"
+      alt="Portrait of Amin Nabizada"
+      class="profile-photo"
+    >
+  </div>
 </section>
 <!-- ABOUT -->
 <section class="section" id="about">
