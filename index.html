@@ -71,32 +71,40 @@
       font-size: 18px;
     }
 
-    /* BUTTON */
-    .button {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 22px;
-      background: #2f9e8f;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
+/* BUTTON */
+.button {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 22px;
+  background: #2f9e8f;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
 
-    .button:hover {
-      transform: scale(1.05);
-      background: #238a7c;
-    }
+.button:hover {
+  transform: scale(1.05);
+  background: #238a7c;
+}
 
-    /* PHOTO */
-    .profile-photo {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #2f9e8f;
-      transition: 0.3s;
-    }
+/* Typing text under your name */
+#typing {
+  font-size: 20px;
+  color: #9aa4b2;
+  margin-top: 10px;
+  min-height: 25px;
+}
+
+/* PHOTO */
+.profile-photo {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2f9e8f;
+  transition: 0.3s;
+}
 
     .profile-photo:hover {
       transform: scale(1.05);
@@ -168,23 +176,24 @@
 
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <h2>Amin Nabizada</h2>
-    <div>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav>
+  <h2>Amin Nabizada</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Hello, I’m Amin Nabizada</h1>
-      <p>Welcome to my website.</p>
-      <a class="button" href="#projects">View My Work</a>
-    </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Hello, I’m Amin Nabizada</h1>
+    <h2 id="typing"></h2>
+    <p>Welcome to my website.</p>
+    <a class="button" href="#projects">View My Work</a>
+  </div>
 
     <img class="profile-photo" src="IMG_20260102_173049.jpg" alt="Profile photo">
   </section>
@@ -249,10 +258,24 @@
     <a class="button" href="https://www.linkedin.com/in/amin-nabizada/" target="_blank">My LinkedIn</a>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Amin Nabizada · My personal website</p>
-  </footer>
+ <footer>
+  <p>© 2026 Amin Nabizada · My personal website</p>
+</footer>
+
+<script>
+  const text = "Machine Learning Student | AI Enthusiast | Developer";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      document.getElementById("typing").textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 70);
+    }
+  }
+
+  type();
+</script>
 
 </body>
 </html>
