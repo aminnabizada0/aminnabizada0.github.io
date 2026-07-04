@@ -138,12 +138,19 @@ nav a:hover {
 
 /* PROFILE IMAGE (optional safe styling if you add later) */
 .profile-photo {
-  width: 300px;
-  height: 380px;
+  width: 280px;
+  height: 340px;
   object-fit: cover;
-  border-radius: 20px;
-  border: 1px solid rgba(47,158,143,0.5);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  border-radius: 16px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+
+  transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.03);
 }
 
 /* SECTIONS */
