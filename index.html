@@ -581,72 +581,136 @@ display: block;
 </section>
 
 <!-- FOOTER -->
+
 <footer>
-  <p>© 2026 Amin Nabizada</p>
+  <p id="footer-text">© 2026 Amin Nabizada</p>
 </footer>
 
 <script>
-const text = "Machine Learning Student |Future AI Engineer | Developer";
-let i = 0;
+let currentLanguage = "en";
 
-function type() {
-  if (i < text.length) {
-    document.getElementById("typing").textContent += text.charAt(i);
-    i++;
-    setTimeout(type, 60);
+const translations = {
+  en: {
+    typing: "Machine Learning Student | Future AI Engineer | Developer",
+    navName: "Amin Nabizada",
+    heroName: "Amin Nabizada",
+    subtitle: "Machine Learning Student · Developer",
+    description: "Building AI systems for real-world impact",
+    aboutTitle: "About Me",
+    aboutText: "I am Amin Nabizada, a student passionate about mathematics and machine learning. I enjoy understanding how algorithms work and how data can be transformed into intelligent systems. My goal is to use artificial intelligence to solve real-world problems and build practical solutions that can create meaningful impact.",
+    focusTitle: "Focus Areas",
+    focusItems: ["Machine Learning", "Mathematics", "AI Systems", "Python Development"],
+    futureTitle: "Future Vision",
+    futureText: "My goal is to use Artificial Intelligence to solve real-world problems that impact people’s lives. I want to build AI systems that are practical, useful, and able to make better decisions from data.",
+    projectsTitle: "Projects",
+    projectTitle: "ML Project",
+    projectText: "Student Performance EDA.",
+    projectButton: "View Project →",
+    contactTitle: "Find Me Here",
+    emailButton: "Email Me",
+    footer: "© 2026 Amin Nabizada"
+  },
+
+  fa: {
+    typing: "دانشجوی یادگیری ماشین | مهندس آینده هوش مصنوعی | توسعه‌دهنده",
+    navName: "امین نبی‌زاده",
+    heroName: "امین نبی‌زاده",
+    subtitle: "دانشجوی یادگیری ماشین · توسعه‌دهنده",
+    description: "ساخت سیستم‌های هوش مصنوعی برای تأثیرگذاری در دنیای واقعی",
+    aboutTitle: "درباره من",
+    aboutText: "من امین نبی‌زاده هستم، دانشجویی علاقه‌مند به ریاضیات و یادگیری ماشین. از درک نحوه کار الگوریتم‌ها و تبدیل داده‌ها به سیستم‌های هوشمند لذت می‌برم. هدف من استفاده از هوش مصنوعی برای حل مسائل واقعی و ساخت راه‌حل‌های کاربردی است که بتوانند تأثیر مثبتی ایجاد کنند.",
+    focusTitle: "حوزه‌های تمرکز",
+    focusItems: ["یادگیری ماشین", "ریاضیات", "سیستم‌های هوش مصنوعی", "توسعه با پایتون"],
+    futureTitle: "چشم‌انداز آینده",
+    futureText: "هدف من استفاده از هوش مصنوعی برای حل مسائل واقعی است که بر زندگی مردم تأثیر می‌گذارند. می‌خواهم سیستم‌های هوش مصنوعی کاربردی و مفیدی بسازم که بتوانند با استفاده از داده‌ها تصمیم‌های بهتری بگیرند.",
+    projectsTitle: "پروژه‌ها",
+    projectTitle: "پروژه یادگیری ماشین",
+    projectText: "تحلیل اکتشافی داده‌های عملکرد دانش‌آموزان.",
+    projectButton: "مشاهده پروژه ←",
+    contactTitle: "راه‌های ارتباطی",
+    emailButton: "ایمیل من",
+    footer: "© 2026 امین نبی‌زاده"
+  }
+};
+
+function typeText(text) {
+  const typingElement = document.getElementById("typing");
+  typingElement.textContent = "";
+
+  let i = 0;
+
+  function type() {
+    if (i < text.length && currentLanguage === "en") {
+      typingElement.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 60);
+    }
+  }
+
+  type();
+}
+
+function setLanguage(language) {
+  currentLanguage = language;
+
+  const t = translations[language];
+  const isPersian = language === "fa";
+
+  document.documentElement.lang = language;
+  document.documentElement.dir = isPersian ? "rtl" : "ltr";
+
+  document.querySelector("nav h2").textContent = t.navName;
+  document.querySelector(".hero h1").textContent = t.heroName;
+  document.querySelector(".subtitle").textContent = t.subtitle;
+  document.querySelector(".hero-description").textContent = t.description;
+
+  document.getElementById("typing").textContent = t.typing;
+
+  document.querySelector("#about h2").textContent = t.aboutTitle;
+  document.querySelector("#about .about-box p").textContent = t.aboutText;
+
+  document.querySelector(".about-side h3").textContent = t.focusTitle;
+
+  document.querySelectorAll(".about-side li").forEach((item, index) => {
+    item.textContent = t.focusItems[index];
+  });
+
+  document.querySelector("#future h2").textContent = t.futureTitle;
+  document.querySelector("#future .about-box").textContent = t.futureText;
+
+  document.querySelector("#projects h2").textContent = t.projectsTitle;
+  document.querySelector(".card h3").textContent = t.projectTitle;
+  document.querySelector(".card p").textContent = t.projectText;
+  document.querySelector(".project-link").textContent = t.projectButton;
+
+  document.querySelector("#contact h2").textContent = t.contactTitle;
+  document.querySelector("#contact .button").textContent = t.emailButton;
+
+  document.getElementById("footer-text").textContent = t.footer;
+
+  if (language === "en") {
+    typeText(t.typing);
   }
 }
-type();
 
-/* scroll animation */
+/* Start English typing animation */
+typeText(translations.en.typing);
+
+/* Scroll animation */
 const sections = document.querySelectorAll(".section");
 
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(e => {
-if (e.isIntersecting) e.target.classList.add("show");
-});
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("show");
+  });
 }, { threshold: 0.15 });
 
 sections.forEach(s => observer.observe(s));
 
-function setLanguage(language) {
-const isPersian = language === "fa";
-
-document.documentElement.lang = language;
-document.documentElement.dir = isPersian ? "rtl" : "ltr";
-
-document.querySelector("nav h2").textContent =
-isPersian ? "امین نبی‌زاده" : "Amin Nabizada";
-
-document.querySelector(".hero h1").textContent =
-isPersian ? "امین نبی‌زاده" : "Amin Nabizada";
-
-document.querySelector(".subtitle").textContent =
-isPersian
-? "دانشجوی یادگیری ماشین · توسعه‌دهنده"
-: "Machine Learning Student · Developer";
-
-document.querySelector(".hero-description").textContent =
-isPersian
-? "ساخت سیستم‌های هوش مصنوعی برای تأثیرگذاری در دنیای واقعی"
-: "Building AI systems for real-world impact";
-
-document.querySelector("#about h2").textContent =
-isPersian ? "درباره من" : "About Me";
-
-document.querySelector("#projects h2").textContent =
-isPersian ? "پروژه‌ها" : "Projects";
-
-document.querySelector("#future h2").textContent =
-isPersian ? "چشم‌انداز آینده" : "Future Vision";
-
-document.querySelector("#contact h2").textContent =
-isPersian ? "راه‌های ارتباطی" : "Find Me Here";
-}
-
 function toggleMenu() {
-document.getElementById("menu").classList.toggle("show");
-} </script>
+  document.getElementById("menu").classList.toggle("show");
+}
+</script>
 
 </body>
 </html>
