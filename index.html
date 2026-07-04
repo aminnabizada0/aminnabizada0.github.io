@@ -77,11 +77,9 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 60px;
   padding: 80px 10%;
-  gap: 50px;
-  background: radial-gradient(circle at top, #1a2a3a, #0d1117);
   position: relative;
-  overflow: hidden;
 }
 
 .hero::before {
@@ -95,10 +93,8 @@ nav a:hover {
   filter: blur(90px);
   border-radius: 50%;
 }
-
 .hero-text {
-  max-width: 650px;
-  z-index: 2;
+  max-width: 600px;
 }
 
 .hero h1 {
@@ -138,13 +134,13 @@ nav a:hover {
 
 /* PROFILE IMAGE (optional safe styling if you add later) */
 .profile-photo {
-  width: 280px;
-  height: 340px;
+  width: 300px;
+  height: 360px;
   object-fit: cover;
   border-radius: 16px;
 
   border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
 
   transition: transform 0.3s ease;
 }
@@ -152,7 +148,6 @@ nav a:hover {
 .profile-photo:hover {
   transform: scale(1.03);
 }
-
 /* SECTIONS */
 .section {
   padding: 90px 10%;
@@ -228,9 +223,11 @@ footer {
 
 /* MOBILE */
 @media (max-width: 768px) {
+
   .hero {
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
+    gap: 30px;
   }
 
   .menu {
@@ -251,11 +248,12 @@ footer {
   .hamburger {
     display: block;
   }
-}
-</style>
-</head>
 
-<body>
+  .profile-photo {
+    width: 220px;
+    height: 280px;
+  }
+}
 
 <!-- NAV -->
 <nav>
