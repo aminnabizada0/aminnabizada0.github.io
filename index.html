@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -361,84 +361,111 @@ p {
 
 /* FOOTER */
 footer {
-  text-align: center;
-  padding: 30px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  color: #8b949e;
+text-align: center;
+padding: 30px;
+border-top: 1px solid rgba(255,255,255,0.06);
+color: #8b949e;
+}
+
+/* LANGUAGE BUTTONS */
+.language-switcher {
+display: flex;
+gap: 6px;
+margin-left: 10px;
+}
+
+.language-switcher button {
+background: transparent;
+color: #c9d1d9;
+border: 1px solid rgba(255,255,255,0.15);
+border-radius: 8px;
+padding: 6px 9px;
+cursor: pointer;
+}
+
+.language-switcher button:hover {
+color: #63d8c8;
+border-color: #2f9e8f;
+}
+
+[dir="rtl"] {
+text-align: right;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  html,
-  body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  .hero {
-    min-height: auto;
-    width: 100%;
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 30px;
-    padding: 60px 8%;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    width: 280px;
-    height: 280px;
-    top: -120px;
-    right: -120px;
-    filter: blur(60px);
-  }
-
-  .hero-text,
-  .hero-image {
-    width: 100%;
-  }
-
-  .hero-image {
-    justify-content: center;
-  }
-
-  .profile-photo {
-    width: min(220px, 80vw);
-    height: auto;
-    aspect-ratio: 3 / 4;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  .menu {
-    position: absolute;
-    top: 70px;
-    right: 8%;
-    flex-direction: column;
-    background: rgba(13, 17, 23, 0.95);
-    padding: 15px;
-    border-radius: 12px;
-    display: none;
-  }
-
-  .menu.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-  }
+html,
+body {
+width: 100%;
+overflow-x: hidden;
 }
-</style>
+
+.hero {
+min-height: auto;
+width: 100%;
+flex-direction: column-reverse;
+text-align: center;
+gap: 30px;
+padding: 60px 8%;
+overflow: hidden;
+}
+
+.hero::before {
+width: 280px;
+height: 280px;
+top: -120px;
+right: -120px;
+filter: blur(60px);
+}
+
+.hero-text,
+.hero-image {
+width: 100%;
+}
+
+.hero-image {
+justify-content: center;
+}
+
+.profile-photo {
+width: min(220px, 80vw);
+height: auto;
+aspect-ratio: 3 / 4;
+display: block;
+margin: 0 auto;
+}
+
+.hero-buttons {
+justify-content: center;
+}
+
+.menu {
+position: absolute;
+top: 70px;
+right: 8%;
+flex-direction: column;
+background: rgba(13, 17, 23, 0.95);
+padding: 15px;
+border-radius: 12px;
+display: none;
+}
+
+.menu.show {
+display: flex;
+}
+
+.hamburger {
+display: block;
+}
+} </style>
+
 </head>
 
 <body>
 
+
 <!-- NAV -->
+
 <nav>
   <h2>Amin Nabizada</h2>
 
@@ -449,7 +476,17 @@ footer {
     <a href="#contact">Contact</a>
   </div>
 
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="nav-actions">
+    <div class="language-switcher">
+      <button type="button" onclick="setLanguage('en')">EN</button>
+      <button type="button" onclick="setLanguage('fa')">فا</button>
+    </div>
+
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -565,17 +602,51 @@ type();
 const sections = document.querySelectorAll(".section");
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add("show");
-  });
+entries.forEach(e => {
+if (e.isIntersecting) e.target.classList.add("show");
+});
 }, { threshold: 0.15 });
 
 sections.forEach(s => observer.observe(s));
 
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("show");
+function setLanguage(language) {
+const isPersian = language === "fa";
+
+document.documentElement.lang = language;
+document.documentElement.dir = isPersian ? "rtl" : "ltr";
+
+document.querySelector("nav h2").textContent =
+isPersian ? "امین نبی‌زاده" : "Amin Nabizada";
+
+document.querySelector(".hero h1").textContent =
+isPersian ? "امین نبی‌زاده" : "Amin Nabizada";
+
+document.querySelector(".subtitle").textContent =
+isPersian
+? "دانشجوی یادگیری ماشین · توسعه‌دهنده"
+: "Machine Learning Student · Developer";
+
+document.querySelector(".hero-description").textContent =
+isPersian
+? "ساخت سیستم‌های هوش مصنوعی برای تأثیرگذاری در دنیای واقعی"
+: "Building AI systems for real-world impact";
+
+document.querySelector("#about h2").textContent =
+isPersian ? "درباره من" : "About Me";
+
+document.querySelector("#projects h2").textContent =
+isPersian ? "پروژه‌ها" : "Projects";
+
+document.querySelector("#future h2").textContent =
+isPersian ? "چشم‌انداز آینده" : "Future Vision";
+
+document.querySelector("#contact h2").textContent =
+isPersian ? "راه‌های ارتباطی" : "Find Me Here";
 }
-</script>
+
+function toggleMenu() {
+document.getElementById("menu").classList.toggle("show");
+} </script>
 
 </body>
 </html>
