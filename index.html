@@ -369,19 +369,43 @@ footer {
 
 /* MOBILE */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
 
   .hero {
+    min-height: auto;
     flex-direction: column-reverse;
     text-align: center;
     gap: 30px;
+    padding: 60px 8%;
+  }
+
+  .hero-text,
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-image {
+    justify-content: center;
+  }
+
+  .profile-photo {
+    width: min(220px, 80vw);
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+
+  .hero-buttons {
+    justify-content: center;
   }
 
   .menu {
     position: absolute;
     top: 70px;
-    right: 10%;
+    right: 8%;
     flex-direction: column;
-    background: rgba(13,17,23,0.95);
+    background: rgba(13, 17, 23, 0.95);
     padding: 15px;
     border-radius: 12px;
     display: none;
@@ -394,6 +418,7 @@ footer {
   .hamburger {
     display: block;
   }
+}
 
   .profile-photo {
     width: 220px;
@@ -401,6 +426,10 @@ footer {
   }
 }
 </style>
+</head>
+
+<body>
+
 <!-- NAV -->
 <nav>
   <h2>Amin Nabizada</h2>
@@ -415,12 +444,6 @@ footer {
   <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav>
 
-<!-- HERO -->
-<div class="hero-text">
-
-  <h1>Amin Nabizada</h1>
-
- <!-- HERO -->
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
