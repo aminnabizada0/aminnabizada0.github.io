@@ -180,11 +180,16 @@ transform: translate(-70px, 90px) scale(1.15);
 .section {
 padding: 80px 10%;
 text-align: center;
-
 opacity: 0;
-transform: translateY(30px);
-animation: fadeIn 1s forwards;
+transform: translateY(35px);
+transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+.section.show {
+opacity: 1;
+transform: translateY(0);
+}
+
 
 /* ABOUT TEXT CARD */
 .about-text {
@@ -409,11 +414,12 @@ My goal is to pursue a career in AI and use machine learning to solve real-world
 </section>
 
 
- <footer>
+<footer>
   <p>© 2026 Amin Nabizada · My personal website</p>
 </footer>
 
 <script>
+  /* Typing animation */
   const text = "Machine Learning Student | AI Enthusiast | Developer";
   let i = 0;
 
@@ -426,6 +432,22 @@ My goal is to pursue a career in AI and use machine learning to solve real-world
   }
 
   type();
+
+  /* Scroll reveal animation */
+  const sections = document.querySelectorAll(".section");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
 </script>
 
 </body>
